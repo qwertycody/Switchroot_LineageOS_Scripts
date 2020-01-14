@@ -21,7 +21,7 @@ function setup_platform_tools()
 
     PATH_STRING_ALREADY_ADDED=$(misc_stringInFile '$HOME/platform-tools' "~/.profile")
 
-    if [ $PATH_STRING_ALREADY_ADDED == "FALSE" ]
+    if [ "$PATH_STRING_ALREADY_ADDED" = "FALSE" ]
     then
         echo '# add Android SDK platform tools to path
 if [ -d "$HOME/platform-tools" ] ; then
@@ -47,7 +47,7 @@ function setup_repo_command()
 
     PATH_STRING_ALREADY_ADDED=$(misc_stringInFile '$HOME/bin' "~/.profile")
 
-    if [ $PATH_STRING_ALREADY_ADDED == "FALSE" ]
+    if [ "$PATH_STRING_ALREADY_ADDED" = "FALSE" ]
     then
         echo '# set PATH so it includes users private bin if it exists
 if [ -d "$HOME/bin" ] ; then
