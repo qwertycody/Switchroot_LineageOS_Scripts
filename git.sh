@@ -1,6 +1,8 @@
+#!/bin/bash
+
 remoteOrigin="https://github.com/qwertycody/Switchroot_LineageOS_Utility.git"
 
-if [ "$1" == "push" ]; then
+if [ "$1" = "push" ]; then
     git add -A
     git add *
     git remote add origin "$remoteOrigin"
@@ -10,12 +12,12 @@ if [ "$1" == "push" ]; then
     git push --force -u origin master
 fi
 
-if [ "$1" == "pull" ]; then
+if [ "$1" = "pull" ]; then
     git remote add origin "$remoteOrigin"
     git pull origin master
 fi
 
-if [ "$1" == "setup" ]; then
+if [ "$1" = "setup" ]; then
     git init
     git remote add origin "$remoteOrigin"
     #git pull origin master
