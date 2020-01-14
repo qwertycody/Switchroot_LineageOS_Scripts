@@ -14,14 +14,14 @@ function misc_stringInFile()
 
 function setup_platform_tools()
 {
-    rm -Rf ~/platform-tools-latest-linux.zip
-    rm -Rf ~/platform-tools
+    rm -Rf $HOME/platform-tools-latest-linux.zip
+    rm -Rf $HOME/platform-tools
 
     sudo apt-get install -y curl
 
-    curl -o ~/platform-tools-latest-linux.zip "https://dl.google.com/android/repository/platform-tools-latest-linux.zip"
+    curl -o $HOME/platform-tools-latest-linux.zip "https://dl.google.com/android/repository/platform-tools-latest-linux.zip"
 
-    unzip -o platform-tools-latest-linux.zip -d ~
+    unzip -o platform-tools-latest-linux.zip -d $HOME
 
     PATH_STRING_ALREADY_ADDED=$(misc_stringInFile '$HOME/platform-tools' "$HOME/.profile")
 
@@ -30,10 +30,10 @@ function setup_platform_tools()
         echo '# add Android SDK platform tools to path
 if [ -d "$HOME/platform-tools" ] ; then
     PATH="$HOME/platform-tools:$PATH"
-fi' >> ~/.profile
+fi' >> $HOME/.profile
     fi
 
-    source ~/.profile
+    source $HOME/.profile
 }
 
 function setup_packages()
@@ -44,14 +44,14 @@ function setup_packages()
 
 function setup_repo_command()
 {
-    rm -Rf ~/bin/repo
+    rm -Rf $HOME/bin/repo
 
     sudo apt-get install -y curl
 
     mkdir -p $HOME/bin/
 
     curl https://storage.googleapis.com/git-repo-downloads/repo > $HOME/bin/repo
-    chmod a+x ~/bin/repo
+    chmod a+x $HOME/bin/repo
 
     PATH_STRING_ALREADY_ADDED=$(misc_stringInFile '$HOME/bin' "$HOME/.profile")
 
@@ -60,17 +60,17 @@ function setup_repo_command()
         echo '# set PATH so it includes users private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
-fi' >> ~/.profile
+fi' >> $HOME/.profile
     fi
 
-    source ~/.profile
+    source $HOME/.profile
 }
 
 function setup_lineage_source()
 {
-    rm -Rf ~/android/lineage
-    mkdir -p ~/android/lineage
-    cd ~/android/lineage
+    rm -Rf $HOME/android/lineage
+    mkdir -p $HOME/android/lineage
+    cd $HOME/android/lineage
     repo init -u https://github.com/LineageOS/android.git -b lineage-16.0
     repo sync
 }
