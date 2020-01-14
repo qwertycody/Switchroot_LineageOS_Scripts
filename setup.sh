@@ -17,6 +17,8 @@ function setup_platform_tools()
     rm -Rf ~/platform-tools-latest-linux.zip
     rm -Rf ~/platform-tools
 
+    sudo apt-get install -y curl
+
     curl -o ~/platform-tools-latest-linux.zip "https://dl.google.com/android/repository/platform-tools-latest-linux.zip"
 
     unzip -o platform-tools-latest-linux.zip -d ~
@@ -43,6 +45,8 @@ function setup_packages()
 function setup_repo_command()
 {
     rm -Rf ~/bin/repo
+
+    sudo apt-get install -y curl
 
     curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
     chmod a+x ~/bin/repo
