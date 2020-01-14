@@ -23,7 +23,7 @@ function setup_platform_tools()
 
     unzip -o platform-tools-latest-linux.zip -d ~
 
-    PATH_STRING_ALREADY_ADDED=$(misc_stringInFile '$HOME/platform-tools' "~/.profile")
+    PATH_STRING_ALREADY_ADDED=$(misc_stringInFile '$HOME/platform-tools' "$HOME/.profile")
 
     if [ "$PATH_STRING_ALREADY_ADDED" = "FALSE" ]
     then
@@ -51,7 +51,7 @@ function setup_repo_command()
     curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
     chmod a+x ~/bin/repo
 
-    PATH_STRING_ALREADY_ADDED=$(misc_stringInFile '$HOME/bin' "~/.profile")
+    PATH_STRING_ALREADY_ADDED=$(misc_stringInFile '$HOME/bin' "$HOME/.profile")
 
     if [ "$PATH_STRING_ALREADY_ADDED" = "FALSE" ]
     then
