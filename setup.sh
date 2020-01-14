@@ -76,3 +76,5 @@ function main()
     setup_repo_command
     setup_lineage_source
 }
+
+main
