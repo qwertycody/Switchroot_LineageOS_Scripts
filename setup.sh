@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function misc_stringInFile()
 {
     STRING_TO_FIND="$1"
