@@ -68,7 +68,6 @@ fi' >> $HOME/.profile
 
 function setup_lineage_source()
 {
-    rm -Rf $HOME/android/lineage
     mkdir -p $HOME/android/lineage
     cd $HOME/android/lineage
     repo init -u https://github.com/LineageOS/android.git -b lineage-16.0
