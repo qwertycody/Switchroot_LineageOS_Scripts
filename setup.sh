@@ -48,7 +48,9 @@ function setup_repo_command()
 
     sudo apt-get install -y curl
 
-    curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+    mkdir -p $HOME/bin/repo
+
+    curl https://storage.googleapis.com/git-repo-downloads/repo > $HOME/bin/repo
     chmod a+x ~/bin/repo
 
     PATH_STRING_ALREADY_ADDED=$(misc_stringInFile '$HOME/bin' "$HOME/.profile")
