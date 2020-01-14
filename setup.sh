@@ -75,12 +75,21 @@ function setup_lineage_source()
     repo sync
 }
 
+function setup_switchroot_manifest()
+{
+    mkdir -p $HOME/android/lineage/local_manifests
+    git clone https://gitlab.com/switchroot/android/manifest.git $HOME/android/lineage/local_manifests
+    cd $HOME/android/lineage
+    repo sync
+}
+
 function main()
 {
     setup_platform_tools
     setup_packages
     setup_repo_command
     setup_lineage_source
+    setup_switchroot_manifest
 }
 
 main
