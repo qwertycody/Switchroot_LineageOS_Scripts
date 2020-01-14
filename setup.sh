@@ -48,7 +48,7 @@ function setup_repo_command()
 
     sudo apt-get install -y curl
 
-    mkdir -p $HOME/bin/repo
+    mkdir -p $HOME/bin/
 
     curl https://storage.googleapis.com/git-repo-downloads/repo > $HOME/bin/repo
     chmod a+x ~/bin/repo
