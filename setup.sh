@@ -101,7 +101,7 @@ function misc_applyPatch()
 
     if ! patch -R -p1 -s -f --dry-run <$PATCH_FILE; then
         echo "Applying Patch $PATCH_NAME to $DIRECTORY_TO_PATCH"
-        patch -p1 <patchfile
+        patch -p1 <$PATCH_FILE
     else
         echo "Skipping Patch $PATCH_NAME to $DIRECTORY_TO_PATCH - Applied already or failed..."
     fi
