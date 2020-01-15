@@ -1,3 +1,5 @@
 - Next to do:
-  - after that you'll need to follow the readme for the patches. I'd suggest leaving out rsmouse right now just to make things simpler
+  -  Follow below for patches:
+    - https://gitlab.com/switchroot/android/manifest
+  - leave out rsmouse right now just to make things simpler
   - for the repopick stuff in there you run repopick -t nvidia-enhancements-p and repopick -t joycon-p
