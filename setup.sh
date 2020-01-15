@@ -164,7 +164,7 @@ function setup_build_image()
     source build/envsetup.sh
     export USE_CCACHE=1
     ccache -M 50G
-    `lunch lineage_icosa-userdebug` #or `lunch lineage_foster_tab-userdebug` if the icosa variant doesn't work
+    lunch lineage_icosa-userdebug #or lunch lineage_foster_tab-userdebug if the icosa variant doesn't work
     make systemimage -j$(nproc)
     make vendorimage -j$(nproc)
 
