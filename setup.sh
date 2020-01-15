@@ -21,7 +21,7 @@ function setup_platform_tools()
 
     curl -o $HOME/platform-tools-latest-linux.zip "https://dl.google.com/android/repository/platform-tools-latest-linux.zip"
 
-    unzip -o platform-tools-latest-linux.zip -d $HOME
+    unzip -o $HOME/platform-tools-latest-linux.zip -d $HOME
 
     PATH_STRING_ALREADY_ADDED=$(misc_stringInFile '$HOME/platform-tools' "$HOME/.profile")
 
