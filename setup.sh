@@ -114,7 +114,7 @@ function setup_patches()
 
     cd "$BASE_DIR"
     source build/envsetup.sh
-    
+
     repopick -t nvidia-enhancements-p
     repopick -t joycon-p 
     repopick -t icosa-bt
@@ -184,16 +184,41 @@ function setup_build_image()
     make bootimage -j$(nproc)
 }
 
-function main()
+function misc_promptForChoice()
+{
+    COMMAND="$1"
+    QUESTION="$2"
+
+    while true; do
+        read -p "$QUESTION" yn
+        case $yn in
+            [Yy]* ) $COMMAND; break;;
+            [Nn]* ) break;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+}
+
+function main_setupEnvironment()
 {
     setup_platform_tools
     setup_packages
     setup_repo_command
+}
+
+function main_setupSource()
+{
     setup_lineage_source
     setup_switchroot_manifest
-    setup_patches
-    setup_optional_patches
-    setup_build_image
+}
+
+function main()
+{
+    misc_promptForChoice "main_setupEnvironment" "Do the Build Environment Tools need to be setup?"
+    misc_promptForChoice "main_setupSource" "Do you want to download/update the code for LineageOS/Switchroot?"
+    misc_promptForChoice "setup_patches" "Do you want to apply the Switchroot Patches if they haven't already been applied?"
+    misc_promptForChoice "setup_optional_patches" "(Optional) Do you want to apply the Optional Switchroot Patches if they haven't already been applied? (RSMouse, NvShieldTech)"
+    misc_promptForChoice "setup_build_image" "Ready to build the image?"
 }
 
 main
