@@ -19,7 +19,11 @@ function setup_platform_tools()
 
     sudo apt-get install -y curl
 
-    curl -o $HOME/platform-tools-latest-linux.zip "https://dl.google.com/android/repository/platform-tools-latest-linux.zip"
+    cd "$HOME"
+
+    rm -f platform-tools-latest-linux.zip
+
+    wget "https://dl.google.com/android/repository/platform-tools-latest-linux.zip"
 
     unzip -o $HOME/platform-tools-latest-linux.zip -d $HOME
 
