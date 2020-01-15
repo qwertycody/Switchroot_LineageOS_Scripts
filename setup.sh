@@ -112,7 +112,9 @@ function setup_patches()
     BASE_DIR="$HOME/android/lineage"
     PATCHES_DIR="$BASE_DIR/.repo/local_manifests/patches"
 
-    cd $HOME/android/lineage
+    cd "$BASE_DIR"
+    source build/envsetup.sh
+    
     repopick -t nvidia-enhancements-p
     repopick -t joycon-p 
     repopick -t icosa-bt
@@ -124,6 +126,9 @@ function setup_optional_patches()
 {
     BASE_DIR="$HOME/android/lineage"
     PATCHES_DIR="$BASE_DIR/.repo/local_manifests/patches"
+
+    cd "$BASE_DIR"
+    source build/envsetup.sh
 
     misc_applyPatch "$BASE_DIR/frameworks/base" "$PATCHES_DIR/frameworks_base-rsmouse.patch" "frameworks_base-rsmouse.patch"
     misc_applyPatch "$BASE_DIR/vendor/nvidia" "$PATCHES_DIR/0001-HACK-use-platform-sig-for-shieldtech.patch" "0001-HACK-use-platform-sig-for-shieldtech.patch"
