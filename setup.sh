@@ -172,7 +172,7 @@ function setup_build_image()
     make vendorimage -j$(nproc)
 
     #Modifying BoardConfig.mk
-    BOARD_CONFIG_FILE="$HOME/device/nvidia/foster/BoardConfig.mk"
+    BOARD_CONFIG_FILE="$BASE_DIR/device/nvidia/foster/BoardConfig.mk"
     BOARD_KERNEL_IMAGE_NAME='BOARD_KERNEL_IMAGE_NAME := zImage'
     BOARD_MKBOOTIMG_ARGS='BOARD_MKBOOTIMG_ARGS    += --cmdline " "'
     COMBINED_STRINGS="$BOARD_KERNEL_IMAGE_NAME\n$BOARD_MKBOOTIMG_ARGS"
