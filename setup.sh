@@ -44,6 +44,7 @@ function setup_packages()
 {
     sudo apt-get install -y bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev
     sudo apt-get install -y openjdk-9-jdk
+    sudo apt-get install -y libtinfo5 libncurses5
 }
 
 function setup_repo_command()
@@ -160,6 +161,8 @@ function setup_build_image()
 {
     BASE_DIR="$HOME/android/lineage"
     cd "$BASE_DIR"
+
+    mkdir -p "$BASE_DIR/out/target/product/foster_tab/vendor/lib/modules"
 
     source build/envsetup.sh
     export USE_CCACHE=1
