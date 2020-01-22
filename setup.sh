@@ -168,8 +168,6 @@ function setup_build_image()
     export USE_CCACHE=1
     ccache -M 50G
     lunch lineage_icosa-userdebug #or lunch lineage_foster_tab-userdebug if the icosa variant doesn't work
-    make systemimage -j$(nproc)
-    make vendorimage -j$(nproc)
 
     #Modifying BoardConfig.mk
     BOARD_CONFIG_FILE="$BASE_DIR/device/nvidia/foster/BoardConfig.mk"
@@ -185,6 +183,8 @@ function setup_build_image()
     fi
 
     make bootimage -j$(nproc)
+    make systemimage -j$(nproc)
+    make vendorimage -j$(nproc)
 }
 
 function misc_promptForChoice()
